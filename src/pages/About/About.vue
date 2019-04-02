@@ -1,9 +1,9 @@
 <template>
-  <div class="about">
+  <div class="about container">
     <div class="row mb-5">
       <div class="col-4">
         <!-- 导航 -->
-        <div class="list-group mb-5">
+        <div class="list-group">
           <router-link tag="li" class="nav-link" :to="{name: 'HistoryLink'}">
             <a class="list-group-item list-group-item-action">历史订单</a>
           </router-link>

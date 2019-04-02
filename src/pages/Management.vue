@@ -1,5 +1,5 @@
 <template>
-  <div class="Management"></div>
+  <div class="Management container"></div>
 </template>
 
 <script>
