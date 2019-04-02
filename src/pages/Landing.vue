@@ -50,7 +50,7 @@ export default {
           // console.log(result)
           if (result.length > 0 && result != null) {
             alert('登陆成功')
-            this.$router.push({ path: '/' })
+            this.$router.push({ path: '/home' })
           } else {
             alert('登陆失败')
           }
