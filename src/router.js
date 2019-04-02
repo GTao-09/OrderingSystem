@@ -70,8 +70,12 @@ export default new Router({
       component: Registered
     },
     {
+      path: '/',
+      redirect: '/landing'
+    },
+    {
       path: '*',
-      redirect: '/'
+      redirect: '/landing'
     }
   ]
 })

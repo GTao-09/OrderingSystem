@@ -1,13 +1,4 @@
 <template>
-  <div class="Landing container"></div>
-</template>
-
-<script>
-export default {
-  name: 'Landing'
-}
-</script>
-<template>
   <div class="Landing container">
     <div class="row mt-3">
       <div class="col-md-12 col-lg-12">
@@ -44,7 +35,26 @@ export default {
   },
   methods: {
     landingSubmit () {
-
+      axios.get('http://localhost:3000/posts')
+        .then(res => {
+          const resData = res.data
+          let infromation = []
+          for (let i in resData) {
+            // console.log(resData[i])
+            infromation.push(resData[i])
+          }
+          // console.log(infromation)
+          let result = infromation.filter(element => {
+            return element.formEmail === this.landingEmail && element.inputPassword === this.landingPassword
+          })
+          // console.log(result)
+          if (result.length > 0 && result != null) {
+            alert('登陆成功')
+            this.$router.push({ path: '/' })
+          } else {
+            alert('登陆失败')
+          }
+        })
     }
   }
 }

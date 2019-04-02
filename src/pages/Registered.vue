@@ -42,7 +42,7 @@ export default {
     formSubmit () {
       const testinputPassword = this.inputPassword.trim()
       if (!testinputPassword) {
-        alert('密码不能为空!')
+        alert('密码不能为空或者空格!')
         return
       }
       if (this.inputPassword !== this.confirmPassword) {
@@ -55,7 +55,11 @@ export default {
         confirmPassword: this.confirmPassword
       }
       axios.post('http://localhost:3000/posts', Infromation)
-        .then(res => {})
+        .then(res => {
+          if (window.confirm(`注册成功确定转到登陆页吗?`)) {
+            this.$router.push({ name: 'LandingLink' })
+          }
+        })
       this.formEmail = ''
       this.inputPassword = ''
       this.confirmPassword = ''
