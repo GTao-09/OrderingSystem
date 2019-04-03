@@ -27,7 +27,10 @@ export default new Router({
     {
       path: '/home',
       name: 'HomeLink',
-      component: Home
+      components: { // 路由复用
+        default: Home,
+        'History': History
+      }
     },
     {
       path: '/menu',
