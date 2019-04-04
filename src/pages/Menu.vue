@@ -65,32 +65,7 @@ export default {
   data () {
     return {
       shoppingCartList: [],
-      foodList: {
-        '001': {
-          'name': '榴莲',
-          'description': '这是喜欢吃榴莲朋友的最佳选择',
-          'size': 3,
-          'price': 38
-        },
-        '002': {
-          'name': '芝士',
-          'description': '芝士杀手,浓浓的芝士丝, 食欲瞬间爆棚',
-          'size': 2,
-          'price': 18
-        },
-        '003': {
-          'name': '夏威夷果',
-          'description': '众多人的默认选择',
-          'size': 9,
-          'price': 50
-        },
-        '004': {
-          'name': '榴莲',
-          'description': '这是喜欢吃榴莲朋友的最佳选择',
-          'size': 6,
-          'price': 70
-        }
-      }
+      foodList: []
     }
   },
   methods: {
@@ -124,7 +99,17 @@ export default {
     },
     addNumber (item) {
       item.number++
+    },
+    getFoodList () {
+      this.$axios.get('http://localhost:3001/posts')
+        .then(res => {
+          // console.log(res.data)
+          this.foodList = res.data
+        })
     }
+  },
+  mounted () {
+    this.getFoodList()
   }
 }
 </script>
