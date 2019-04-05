@@ -11,28 +11,28 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link class="nav-link" :to="{name: 'HomeLink'}">Home</router-link>
+            <router-link class="nav-link" :to="{name: 'HomeLink'}">首页</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" :to="{name: 'MenuLink'}">Menu</router-link>
+            <router-link class="nav-link" :to="{name: 'MenuLink'}">菜单</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" :to="{name: 'ManagementLink'}">Management</router-link>
+            <router-link class="nav-link" :to="{name: 'ManagementLink'}">管理</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" :to="{name: 'AboutLink'}">About</router-link>
+            <router-link class="nav-link" :to="{name: 'AboutLink'}">关于我们</router-link>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">
           <li v-show="!this.getIslogin" class="nav-item">
-            <router-link class="nav-link" :to="{name: 'LandingLink'}">Landing</router-link>
+            <router-link class="nav-link" :to="{name: 'LandingLink'}">登录</router-link>
           </li>
           <li v-show="this.getIslogin" class="nav-link">{{ getEmail }}</li>
           <li v-show="this.getIslogin" class="nav-item">
             <router-link class="nav-link" :to="{name: 'LandingLink'}">[退出]</router-link>
           </li>
           <li v-show="!this.getIslogin" class="nav-item">
-            <router-link class="nav-link" :to="{name: 'RegisteredLink'}">Registered</router-link>
+            <router-link class="nav-link" :to="{name: 'RegisteredLink'}">注册</router-link>
           </li>
         </ul>
       </div>
