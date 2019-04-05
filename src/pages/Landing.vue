@@ -33,6 +33,12 @@ export default {
       landingPassword: ''
     }
   },
+  // beforeRouteEnter会在组件创建之前执行，所以this取不到值，用next回调来取
+  beforeRouteEnter: (to, from, next) => {
+    next(vm => {
+      vm.$store.dispatch('userEmail', null)
+    })
+  },
   methods: {
     landingSubmit () {
       axios.get('http://localhost:3000/posts')
@@ -51,9 +57,12 @@ export default {
           // console.log(result)
           if (result.length > 0 && result != null) {
             alert('登陆成功')
+            this.$store.dispatch('userEmail', result[0].formEmail)
+            // console.log(result[0].formEmail, 1)
             this.$router.push({ path: '/home' })
           } else {
             alert('登陆失败')
+            this.$store.dispatch('userEmail', null)
           }
         })
     }

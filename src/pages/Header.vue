@@ -24,10 +24,14 @@
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+          <li v-show="!this.getIslogin" class="nav-item">
             <router-link class="nav-link" :to="{name: 'LandingLink'}">Landing</router-link>
           </li>
-          <li class="nav-item">
+          <li v-show="this.getIslogin" class="nav-link">{{ getEmail }}</li>
+          <li v-show="this.getIslogin" class="nav-item">
+            <router-link class="nav-link" :to="{name: 'LandingLink'}">[退出]</router-link>
+          </li>
+          <li v-show="!this.getIslogin" class="nav-item">
             <router-link class="nav-link" :to="{name: 'RegisteredLink'}">Registered</router-link>
           </li>
         </ul>
@@ -37,8 +41,12 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  name: 'Header'
+  name: 'Header',
+  computed: {
+    ...mapGetters(['getEmail', 'getIslogin'])
+  }
 }
 </script>
 

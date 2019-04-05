@@ -75,8 +75,14 @@ export default {
       // console.log(this.newFood)
       this.$axios.post('http://localhost:3001/posts', this.newFood)
         .then(res => {
-          this.$router.push({ name: 'MenuLink' })
+          // this.$router.push({ name: 'MenuLink' })
         })
+      this.newFood = {
+        name: '',
+        description: '',
+        price: '',
+        size: ''
+      }
     },
     getFoodInfo () {
       this.$axios.get('http://localhost:3001/posts')
@@ -87,7 +93,7 @@ export default {
     deleteFood (index) {
       this.$axios.delete(`http://localhost:3001/posts/${index}`)
         .then(res => {
-          alert('删除成功')
+          // alert('删除成功')
         })
     }
   },
